@@ -10,20 +10,19 @@ public class SampleController {
 	@GetMapping("/hello")
 	public String sayHello() {
 
-		return "Hello World";
+		return "Hello World!";
 	}
 
 	@GetMapping("/sample")
-	public SampleVO makeSample() {
-		SampleVO vo = new SampleVO();
-		
-		vo.setVal1("v1");
-		vo.setVal2("v2");
-		vo.setVal3("v3");
-		
-		System.out.println(vo);
-		
-		return vo;
-	}
+	public SampleVO sampleVO() {
+		SampleVO sampleVO = new SampleVO();
+		sampleVO.setVal1("val1");
+		sampleVO.setVal2("val2");
+		sampleVO.setVal3("val3");
 
+		System.out.println(sampleVO);
+
+		return sampleVO;
+
+	}
 }

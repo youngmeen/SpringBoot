@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.ResultMatcher;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SampleController {
-
+	
 	@Autowired
 	MockMvc mock;
 	
@@ -22,4 +22,5 @@ public class SampleController {
 	public void testHello() throws Exception{
 		mock.perform(get("/hello")).andExpect((ResultMatcher) content().string("Hello World"));
 	}
+
 }
