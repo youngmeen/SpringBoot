@@ -1,5 +1,7 @@
 package org.zerock.persistence;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.CrudRepository;
 import org.zerock.domain.QWebBoard;
@@ -21,15 +23,16 @@ public interface WebBoardRepository extends CrudRepository<WebBoard, Long>, Quer
 		if (type == null) {
 			return builder;
 		}
+
 		switch (type) {
 		case "t":
 			builder.and(board.title.like("%" + keyword + "%"));
 			break;
 		case "c":
-			builder.and(board.title.like("%" + keyword + "%"));
+			builder.and(board.content.like("%" + keyword + "%"));
 			break;
 		case "w":
-			builder.and(board.title.like("%" + keyword + "%"));
+			builder.and(board.writer.like("%" + keyword + "%"));
 			break;
 		}
 
